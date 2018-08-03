@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AdminPagesComponent } from './components/admin-pages/admin-pages.component';
+import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    AdminPagesComponent
+    AdminPagesComponent,
+    AdminNavbarComponent
   ],
   imports: [
     BrowserModule,
