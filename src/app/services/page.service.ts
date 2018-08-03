@@ -24,4 +24,13 @@ export class PageService {
   getPage(slug) {
     return this.http.get('http://localhost:3000/pages/' + slug);
   }
+
+  postAddPage(value) {
+    // return this.http.post('http://localhost:3000/pages/add-page', value)
+    //     .map(res => res.json());
+    return this.http.post('http://localhost:3000/pages/add-page', value);
+  }
+
+
+
 }

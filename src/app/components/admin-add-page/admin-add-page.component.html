@@ -1,0 +1,44 @@
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Seite hinzugefügt</p>
+</div>
+
+<div class="alert alert-error" *ngIf="errorMsg">
+  <p>Seiten Titel existiert bereits, wähle einen anderen Titel.
+</div>
+
+
+<h1 class="page-title">Seite hinzufügen</h1>
+<a href="" class="btn btn-primary" routerLink="/admin/pages">Zurück zu allen Seiten</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="addPage(f)">
+
+  <div class="forms-group">
+    <label for="title">Titel:</label>
+    <input type="text" class="form-control" placeholder="Titel" id="title"
+           name="title"
+           [(ngModel)]="title"
+           #pageTitle="ngModel"
+           minlength="3"
+           required>
+  </div>
+  <div class="alert alert-danger" *ngIf="pageTitle.errors?.required && pageTitle.touched">
+    Titel ist erforderlich.
+  </div>
+  <div class="alert alert-danger" *ngIf="pageTitle.errors?.minlength && pageTitle.touched">
+    Minimale Passwortlänge ist 3.
+  </div>
+
+  <div class="forms-group">
+    <label>Inhalt:</label>
+    <textarea class="form-control" placeholder="Content" name="content" cols="30" rows="10"
+              [(ngModel)]="content"></textarea>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default" [disabled]="!f.valid">Seite hinzufügen</button>
+  </div>
+
+
+</form>
