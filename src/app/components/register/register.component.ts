@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
             this.userExists = false;
           }.bind(this), 2000);  // damit this.userExist auf die Klasse bindet, wird durch setTimeout Execution ja verhindert, binden wir .bind(this)
         } else {
+          localStorage.setItem('userRegistred', 'true');
           this.router.navigateByUrl('login');
         }
       });
