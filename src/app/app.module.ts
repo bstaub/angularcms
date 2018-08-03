@@ -7,9 +7,11 @@ import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {PagesComponent} from './components/pages/pages.component';
+
 
 import {PageService} from './services/page.service';
-import {PagesComponent} from './components/pages/pages.component';
+import {Title} from '@angular/platform-browser';
 
 
 const appRoutes: Routes = [
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    PageService
+    PageService,
+    Title
   ],
   bootstrap: [AppComponent]
 })
