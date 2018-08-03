@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  get front() {
+  front() {
     if (localStorage.getItem('user') === '\"admin\"'){
       return false;
     }
