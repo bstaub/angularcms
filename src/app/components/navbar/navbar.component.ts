@@ -9,6 +9,18 @@ import {PageService} from '../../services/page.service';
 export class NavbarComponent implements OnInit {
 
   pages: any;
+  user: string;
+
+  get userLoggedIn() {
+    if (localStorage.getItem('user')) {
+      console.log('before', localStorage.getItem('user'));
+      this.user = localStorage.getItem('user').replace(/\"/g, '');
+      console.log('after', this.user);
+      return true;
+    }
+    return false;
+  }
+
   constructor(public pageService: PageService) { }
 
   ngOnInit() {
