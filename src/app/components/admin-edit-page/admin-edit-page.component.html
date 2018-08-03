@@ -1,0 +1,49 @@
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Seite bearbeitet</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Seitentitel existiert bereits, wähle einen anderen Titel.</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg2">
+  <p>Problem die Seite zu bearbeiten, versuch es später nochmals.</p>
+</div>
+
+
+<h1 class="page-title"> {{ title }} bearbeiten</h1>
+<a href="" class="btn btn-primary" routerLink="/admin/pages">Zurück zu allen Seiten</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="editPage(f)">
+
+  <div class="forms-group">
+    <label for="title">Titel:</label>
+    <input type="text" class="form-control" placeholder="Titel" id="title"
+           name="title"
+           [(ngModel)]="title"
+           #pageTitle="ngModel"
+           minlength="3"
+           required>
+  </div>
+  <div class="alert alert-danger" *ngIf="pageTitle.errors?.required && pageTitle.touched">
+    Titel ist erforderlich.
+  </div>
+  <div class="alert alert-danger" *ngIf="pageTitle.errors?.minlength && pageTitle.touched">
+    Minimale Passwortlänge ist 3.
+  </div>
+
+  <div class="forms-group">
+    <label>Inhalt:</label>
+    <textarea class="form-control" placeholder="Content" name="content" cols="30" rows="10"
+              [(ngModel)]="content"></textarea>
+  </div>
+
+  <!-- added id in Edit page -->
+  <input type="hidden" name="id" [(ngModel)]="id">
+
+  <div class="form-group">
+    <button class="btn btn-default" [disabled]="!f.valid">Seite bearbeiten</button>
+  </div>
+
+
+</form>

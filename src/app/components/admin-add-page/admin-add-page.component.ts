@@ -29,12 +29,13 @@ export class AdminAddPageComponent implements OnInit {
     // add security, redirect to home if its not the admin! Test: copy url http://localhost:4200/admin/add-page when logged out
     if (localStorage.getItem('user') !== '\"admin\"') {
       this.router.navigateByUrl('');
+    } else {
+      CKEDITOR.replace('content');
     }
 
     // test jQuery
     // $('body').addClass('brunoquerytest');
     // activate Editor!
-    CKEDITOR.replace('content');
   }
 
   addPage({form, value, valid}) {
