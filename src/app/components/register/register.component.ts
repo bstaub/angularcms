@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 
@@ -14,9 +14,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
+    if (localStorage.getItem('user')) {
+      this.router.navigateByUrl('');
+    }
   }
 
   /*  // value and valid return true or false, you can check it like this
@@ -29,13 +33,13 @@ export class RegisterComponent implements OnInit {
   register({value, valid}) {
     if (valid) {
       this.userService.register(value).subscribe(res => {
-        if(res === 'userExists') {
+        if (res === 'userExists') {
           this.userExists = true;
-          setTimeout(function() {
+          setTimeout(function () {
             this.userExists = false;
           }.bind(this), 2000);  // damit this.userExist auf die Klasse bindet, wird durch setTimeout Execution ja verhindert, binden wir .bind(this)
         } else {
-          localStorage.setItem('userRegistred', 'true');
+          localStorage.setItem('userRegistered', 'true');
           this.router.navigateByUrl('login');
         }
       });

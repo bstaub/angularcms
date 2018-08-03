@@ -11,7 +11,7 @@ import {UserService} from '../../services/user.service';
 export class LoginComponent implements OnInit {
 
   public loginFailed: boolean = false;
-  public userRegistred: boolean = false;
+  public userRegistered: boolean = false;
 
   constructor(
     private router: Router,
@@ -20,9 +20,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('userRegistred')) {
-      this.userRegistred = true;
-      localStorage.removeItem('userRegistred');
+    if (localStorage.getItem('user')){
+      this.router.navigateByUrl('');
+    }
+    if (localStorage.getItem('userRegistered')) {
+      this.userRegistered = true;
+      localStorage.removeItem('userRegistered');
     }
   }
 
