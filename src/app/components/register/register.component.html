@@ -1,6 +1,10 @@
 
 <h1 class="page-title">Register</h1>
 
+<div class="alert alert-danger" *ngIf="userExists">
+  <p>Dieser Benutzer existiert bereits, versuche es mit einem anderen Benutzer</p>
+</div>
+
 <form novalidate #f="ngForm" (ngSubmit)="register(f)">
 
   <div class="forms-group">
@@ -36,6 +40,7 @@
   </div>
 
   <div class="form-group">
+    <!--<button class="btn btn-default">Registrieren</button>-->
     <button class="btn btn-default" [disabled]="!f.valid">Registrieren</button>
   </div>
 
