@@ -1,0 +1,32 @@
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Seite gelöscht</p>
+</div>
+
+<div class="alert alert-error" *ngIf="errorMsg">
+  <p>Error Seite nicht gelöscht</p>
+</div>
+
+<h1 class="page-title">Seiten</h1>
+<a href="" class="btn btn-primary" routerLink="/admin/add-page">Seite hinzufügen</a>
+<br>
+<br>
+
+<table class="table">
+  <tr bgcolor="#f9f9f9">
+    <th>Titel</th>
+    <th>Bearbeiten</th>
+    <th>Löschen</th>
+  </tr>
+
+  <tr *ngFor="let page of pages.value">
+    <td>
+      {{ page.title }}
+    </td>
+    <td>
+      <a href="" routerLink="/admin/edit-page/{{ page._id}}">Bearbeiten</a>
+    </td>
+    <td *ngIf="page.slug !== 'home'">
+      <a href="" routerLink="/admin/edit-page/{{ page._id}}">Löschen</a>
+    </td>
+  </tr>
+</table>

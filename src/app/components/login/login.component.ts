@@ -39,7 +39,12 @@ export class LoginComponent implements OnInit {
           }.bind(this), 2000);  // damit this.userExist auf die Klasse bindet, wird durch setTimeout Execution ja verhindert, binden wir .bind(this)
         } else {
           localStorage.setItem('user', JSON.stringify(res));
-          this.router.navigateByUrl('');  // if user logged in, he will redirected to homepage
+          if (localStorage.getItem('user') === '\"admin\"') {
+            this.router.navigateByUrl('admin/pages');
+          } else {
+            this.router.navigateByUrl('');  // normal user goes to Homepage
+          }
+
         }
       });
 
