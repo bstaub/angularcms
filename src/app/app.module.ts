@@ -21,6 +21,7 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { AdminAddPageComponent } from './components/admin-add-page/admin-add-page.component';
 import { AdminEditPageComponent } from './components/admin-edit-page/admin-edit-page.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import {SidebarService} from './services/sidebar.service';
 
 
 const appRoutes: Routes = [
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
   providers: [
     PageService,
     Title,
-    UserService
+    UserService,
+    SidebarService
   ],
   bootstrap: [AppComponent]
 })
