@@ -37,7 +37,7 @@ export class PageService {
 
 
   postEditPage(value) {
-    return this.http.post('http://localhost:3000/pages/edit-page/'+value.id, value);
+    return this.http.post('http://localhost:3000/pages/edit-page/' + value.id, value);
   }
 
   deletePage(id) {
