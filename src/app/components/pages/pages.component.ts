@@ -51,7 +51,7 @@ export class PagesComponent implements OnInit {
         if (pageBody['sidebar'] === 'yes') {
           this.hasSidebar = true;
           this.sidebarService.getSidebar().subscribe(sidebar => {
-            this.sidebar = sidebar['content'];
+            this.sidebar = sidebar.content;
           });
         } else {
           this.hasSidebar = false;

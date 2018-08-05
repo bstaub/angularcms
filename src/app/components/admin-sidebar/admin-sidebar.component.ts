@@ -27,7 +27,9 @@ export class AdminSidebarComponent implements OnInit {
     }
 
     this.sidebarService.getSidebar().subscribe(res => {
-      this.content = res['content'];
+      // this.content = res['content'];
+      // console.log(res);
+      this.content = res.content;
     });
 
   }

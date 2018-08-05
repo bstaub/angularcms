@@ -41,10 +41,10 @@ export class AdminEditPageComponent implements OnInit {
         // this.title = page.title;
         // this.content = page.content;
         // this.id = page.id;
-        this.title = page['title'];
-        this.content = page['content'];
+        this.title = page['title'];  // build an Interface for doing page.title or use page.['title'], console.log(page) to see how to build interface!
+        this.content = page['content']; // this way is without interface!
         this.id = page['_id'];
-        if (page.sidebar === 'yes') {
+        if (page['sidebar'] === 'yes') {
           this.sidebar = true;
         }
       });
