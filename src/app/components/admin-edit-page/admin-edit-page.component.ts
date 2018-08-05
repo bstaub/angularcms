@@ -44,6 +44,9 @@ export class AdminEditPageComponent implements OnInit {
         this.title = page['title'];
         this.content = page['content'];
         this.id = page['_id'];
+        if (page.sidebar === 'yes') {
+          this.sidebar = true;
+        }
       });
     });
   }
